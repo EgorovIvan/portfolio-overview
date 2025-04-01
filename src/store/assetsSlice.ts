@@ -50,7 +50,7 @@ const initialState: AssetsState = {
             const { name, quantity, currentPrice, priceChangePercent } = action.payload;
 
             // Проверяем, существует ли актив с таким же именем
-            const existingAsset = state.assets.find((asset) => asset.name === name);
+            const existingAsset = state.assets.find((asset): boolean => asset.name === name);
 
             if (existingAsset) {
                 // Если актив уже существует, обновляем только количество
@@ -78,7 +78,7 @@ const initialState: AssetsState = {
             state,
             action: PayloadAction<{ id: string; currentPrice: number; priceChangePercent: number }>
         ): void => {
-            const asset = state.assets.find((a) => a.id === action.payload.id);
+            const asset = state.assets.find((a): boolean => a.id === action.payload.id);
             if (asset) {
                 asset.currentPrice = action.payload.currentPrice;
                 asset.priceChangePercent = action.payload.priceChangePercent;

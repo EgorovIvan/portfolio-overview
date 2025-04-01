@@ -4,6 +4,7 @@ import { RootState } from '../../store';
 import AssetItem from '../AssetItem/AssetItem.tsx';
 import './AssetList.scss';
 import { FixedSizeList as List } from 'react-window';
+import {Asset} from "../../store/assetsSlice.ts";
 
 interface RowProps {
     index: number;
@@ -15,15 +16,15 @@ interface RowProps {
  * количество, текущую стоимость, изменение за 24 часа и долю в портфеле.
  */
 const AssetList: React.FC = () => {
-    const assets = useSelector((state: RootState) => state.assets.assets);
+    const assets: Asset[] = useSelector((state: RootState) => state.assets.assets);
 
     const calculateTotalValue = () => {
         return assets.reduce((total, asset) => total + asset.quantity * asset.currentPrice, 0);
     };
 
-    const totalPortfolioValue = calculateTotalValue();
+    const totalPortfolioValue: number = calculateTotalValue();
 
-    const calculatePortfolioPercentage = (value: number, totalValue: number) => {
+    const calculatePortfolioPercentage = (value: number, totalValue: number): string => {
         if (totalValue === 0) return '0%';
         return `${((value / totalValue) * 100).toFixed(2)}%`;
     };

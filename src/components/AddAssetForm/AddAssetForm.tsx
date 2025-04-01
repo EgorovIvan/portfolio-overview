@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '../../store';
 import { addAsset } from '../../store/assetsSlice.ts';
-import { getBinanceSymbols } from '../../api/load/getBinanceSymbols.ts';
+import {BinanceSymbol, getBinanceSymbols} from '../../api/load/getBinanceSymbols.ts';
 import classNames from 'classnames';
 import './AddAssetForm.scss';
 
@@ -13,30 +13,30 @@ const AddAssetForm: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();
 
     // Управление модальным окном
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState<boolean>(false);
 
     // Поля формы
-    const [searchTerm, setSearchTerm] = useState('');
-    const [selectedSymbol, setSelectedSymbol] = useState('');
+    const [searchTerm, setSearchTerm] = useState<string>('');
+    const [selectedSymbol, setSelectedSymbol] = useState<string>('');
     const [quantity, setQuantity] = useState<number>(0);
 
     // Данные о монетах из Redux
     const { symbols, status, error } = useSelector((state: RootState) => state.binance);
 
     // При первом монтировании — грузим список монет с Binance (если не загружен)
-    useEffect(() => {
+    useEffect((): void => {
         if (status === 'idle') {
             dispatch(getBinanceSymbols());
         }
     }, [status, dispatch]);
 
     // Фильтрация монет по поисковому запросу
-    const filteredSymbols = symbols.filter((item) =>
+    const filteredSymbols: BinanceSymbol[] = symbols.filter((item: BinanceSymbol) =>
         item.symbol.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
     // Сохранение нового актива
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = (e: React.FormEvent): void => {
         e.preventDefault();
         if (!selectedSymbol) return;
 
@@ -61,7 +61,7 @@ const AddAssetForm: React.FC = () => {
 
     // Открыть/закрыть модалку
     const openModal = () => setIsOpen(true);
-    const closeModal = () => {
+    const closeModal = (): void => {
         setIsOpen(false);
         // при закрытии сбросим поиск и выбранный символ
         setSearchTerm('');

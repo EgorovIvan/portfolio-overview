@@ -14,7 +14,7 @@ export interface BinanceSymbol {
 /**
  * Загружает список торговых пар Binance, конвертирует цены в числа и фильтрует только пары, заканчивающиеся на USDT.
  */
-export const getBinanceSymbols = createAsyncThunk('assets/fetchCoins', async () => {
+export const getBinanceSymbols = createAsyncThunk('assets/fetchCoins', async (): Promise<BinanceSymbol[]> => {
     try {
         // Выполняем запрос к Binance API
         const response = await axios.get<ApiBinanceSymbol[]>('https://api.binance.com/api/v3/ticker/price');

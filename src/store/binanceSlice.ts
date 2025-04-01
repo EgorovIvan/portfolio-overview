@@ -26,7 +26,7 @@ const binanceSlice = createSlice({
     reducers: {},
     extraReducers: (builder): void => {
         builder
-            .addCase(getBinanceSymbols.pending, (state) => {
+            .addCase(getBinanceSymbols.pending, (state): void => {
                 state.status = 'loading';
                 state.error = null;
             })
