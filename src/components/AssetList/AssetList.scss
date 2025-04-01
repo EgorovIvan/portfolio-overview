@@ -1,0 +1,21 @@
+.asset-list {
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+
+  .asset-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+
+    .asset-column {
+      flex: 1;
+      text-align: center;
+    }
+  }
+}
+

@@ -1,0 +1,91 @@
+/* Общие стили */
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  @media (max-width: 425px) {
+    font-size: 8px;
+    line-height: 1.2;
+  }
+}
+
+.app {
+  display: block;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    width: 680px;
+  }
+
+  @media (max-width: 425px) {
+    width: 400px;
+  }
+
+  .input-container {
+    margin-bottom: 20px;
+
+    .input-label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .input-field {
+      margin-right: 10px;
+      width: 200px;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      transition: border-color 0.3s ease;
+
+      &:focus {
+        border-color: #007bff;
+        outline: none;
+      }
+
+      &::placeholder {
+        color: #aaa;
+      }
+    }
+
+    .apply-button {
+      background-color: #007bff;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  }
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+input {
+  padding: 10px;
+  border-radius: 2px;
+  color: white;
+  background-color: #696969;
+  cursor: pointer;
+}

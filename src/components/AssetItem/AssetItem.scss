@@ -1,0 +1,39 @@
+.asset-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+
+  @media (max-width: 425px) {
+    padding: 5px;
+  }
+
+  .asset-column {
+    flex: 1;
+    text-align: center;
+  }
+
+  &:hover {
+    background-color: #708090;
+  }
+
+  button {
+    background-color: #CD853F;
+
+    &:hover {
+      background-color: #A52A2A;
+    }
+  }
+}
+
+.positive-change {
+  color: green;
+  font-weight: bold;
+}
+
+.negative-change {
+  color: red;
+  font-weight: bold;
+}

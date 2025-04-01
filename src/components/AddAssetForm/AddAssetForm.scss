@@ -1,0 +1,111 @@
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* полупрозрачная подложка */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.open-button {
+  background-color: #007bff;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+}
+
+.modal-content {
+  background: #2F4F4F;
+  padding: 16px 20px;
+  border-radius: 6px;
+  width: 350px;
+  position: relative;
+
+  @media (max-width: 768px) {
+    padding: 10px 16px;
+    width: 300px;
+  }
+
+  @media (max-width: 425px) {
+    padding: 10px 16px;
+    width: 280px;
+  }
+
+  .close-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    cursor: pointer;
+  }
+
+  .search-input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    /* Стили для списка фильтрованных монет */
+    .symbol-list {
+      max-height: 200px;
+      overflow-y: auto;
+      border: 1px solid #ddd;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      flex-grow: 1;
+    }
+
+    .symbol-list-item {
+      padding: 8px 12px;
+      border-bottom: 1px solid #ddd;
+      cursor: pointer;
+
+      &:hover {
+        background: #708090;
+      }
+    }
+
+    .input-box {
+      width: 100%;
+
+      label {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        margin: 10px 0;
+
+        @media (max-width: 768px) {
+          margin: 6px 0;
+        }
+
+        @media (max-width: 425px) {
+          margin: 4px 0;
+        }
+
+        .coin-input,
+        .count-input {
+          text-align: right;
+          width: 120px;
+        }
+      }
+    }
+
+    .save-button {
+      background-color: #007bff;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,53 @@
+// 1. Сброс отступов, паддингов и рамок
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// 2. Улучшенная типографика (наследование шрифта)
+html, body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+// 3. Убираем стандартный стиль списка
+ul, ol {
+  list-style: none;
+}
+
+// 4. Убираем подчеркивание у ссылок
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+// 5. Убираем обводку при фокусе (но сохраняем для клавиатуры)
+button, input, textarea {
+  outline: none;
+  border: none;
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+}
+
+// 6. Обнуляем стили для таблиц
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+// 7. Убираем стандартные стили для форм
+input, textarea, select {
+  font-size: 1rem;
+}
+
+// 8. Базовый стиль для изображений
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
